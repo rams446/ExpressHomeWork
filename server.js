@@ -15,10 +15,13 @@ app.get('/', (req, res) => {
 
 app.get('/:number_of_bottles', (req, res) => {
         let number = req.params.number_of_bottles;
-        console.log(number);
+        // console.log(number);
         if(number == 0){
             res.send('<a href="/"> Start over </a>');            
-        }else{
+        }else if(number == 1){
+            res.send(`<h3>${req.params.number_of_bottles} Beer Left</h3> <br/><a href=${number-1}>take one down, pass it around</a>`);
+        }
+        else{
             res.send(`<h3>${req.params.number_of_bottles} Beers Left</h3> <br/><a href=${number-1}>take one down, pass it around</a>`);
         }
 });
